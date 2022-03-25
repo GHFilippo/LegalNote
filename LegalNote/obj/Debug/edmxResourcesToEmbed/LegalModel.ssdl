@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="legalnoteModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="anagrafica">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ragionesociale" Type="varchar" MaxLength="255" />
+    <Property Name="nome" Type="varchar" MaxLength="255" />
+    <Property Name="cognome" Type="varchar" MaxLength="255" />
+    <Property Name="indirizzo" Type="varchar" MaxLength="255" />
+    <Property Name="Cap" Type="varchar" MaxLength="20" />
+    <Property Name="citta" Type="varchar" MaxLength="100" />
+    <Property Name="provincia" Type="varchar" MaxLength="6" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Cellulare" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="idUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cause">
+    <Key>
+      <PropertyRef Name="idcause" />
+    </Key>
+    <Property Name="idcause" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="nomecausa" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="datainiziocausa" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="datafinecausa" Type="datetime" Precision="0" />
+    <Property Name="descrizione" Type="varchar" MaxLength="512" />
+    <Property Name="idUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cause_doc">
+    <Key>
+      <PropertyRef Name="idcause_doc" />
+    </Key>
+    <Property Name="idcause_doc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idcausa" Type="int" Nullable="false" />
+    <Property Name="filename" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="filetype" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="utenti">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="admin" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="legalnoteModelStoreContainer">
+    <EntitySet Name="anagrafica" EntityType="Self.anagrafica" Schema="legalnote" store:Type="Tables" />
+    <EntitySet Name="cause" EntityType="Self.cause" Schema="legalnote" store:Type="Tables" />
+    <EntitySet Name="cause_doc" EntityType="Self.cause_doc" Schema="legalnote" store:Type="Tables" />
+    <EntitySet Name="utenti" EntityType="Self.utenti" Schema="legalnote" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

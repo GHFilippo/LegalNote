@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="legalnoteModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="anagrafica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ragionesociale" Type="varchar" MaxLength="255" />
+          <Property Name="nome" Type="varchar" MaxLength="255" />
+          <Property Name="cognome" Type="varchar" MaxLength="255" />
+          <Property Name="indirizzo" Type="varchar" MaxLength="255" />
+          <Property Name="Cap" Type="varchar" MaxLength="20" />
+          <Property Name="citta" Type="varchar" MaxLength="100" />
+          <Property Name="provincia" Type="varchar" MaxLength="6" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Cellulare" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="idUtente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cause">
+          <Key>
+            <PropertyRef Name="idcause" />
+          </Key>
+          <Property Name="idcause" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcliente" Type="int" Nullable="false" />
+          <Property Name="nomecausa" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="datainiziocausa" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="datafinecausa" Type="datetime" Precision="0" />
+          <Property Name="descrizione" Type="varchar" MaxLength="512" />
+          <Property Name="idUtente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cause_doc">
+          <Key>
+            <PropertyRef Name="idcause_doc" />
+          </Key>
+          <Property Name="idcause_doc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcausa" Type="int" Nullable="false" />
+          <Property Name="filename" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="filetype" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="utenti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="admin" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="legalnoteModelStoreContainer">
+          <EntitySet Name="anagrafica" EntityType="Self.anagrafica" Schema="legalnote" store:Type="Tables" />
+          <EntitySet Name="cause" EntityType="Self.cause" Schema="legalnote" store:Type="Tables" />
+          <EntitySet Name="cause_doc" EntityType="Self.cause_doc" Schema="legalnote" store:Type="Tables" />
+          <EntitySet Name="utenti" EntityType="Self.utenti" Schema="legalnote" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="legalnoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="anagrafica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ragionesociale" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cognome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="indirizzo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Cap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="citta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cellulare" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idUtente" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cause">
+          <Key>
+            <PropertyRef Name="idcause" />
+          </Key>
+          <Property Name="idcause" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcliente" Type="Int32" Nullable="false" />
+          <Property Name="nomecausa" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datainiziocausa" Type="DateTime" Nullable="false" />
+          <Property Name="datafinecausa" Type="DateTime" />
+          <Property Name="descrizione" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="idUtente" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cause_doc">
+          <Key>
+            <PropertyRef Name="idcause_doc" />
+          </Key>
+          <Property Name="idcause_doc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcausa" Type="Int32" Nullable="false" />
+          <Property Name="filename" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="filetype" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="utenti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admin" Type="SByte" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="legalnoteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="anagrafica" EntityType="Self.anagrafica" />
+          <EntitySet Name="cause" EntityType="Self.cause" />
+          <EntitySet Name="cause_doc" EntityType="Self.cause_doc" />
+          <EntitySet Name="utenti" EntityType="Self.utenti" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="legalnoteModelStoreContainer" CdmEntityContainer="legalnoteEntities">
+          <EntitySetMapping Name="anagrafica">
+            <EntityTypeMapping TypeName="legalnoteModel.anagrafica">
+              <MappingFragment StoreEntitySet="anagrafica">
+                <ScalarProperty Name="idUtente" ColumnName="idUtente" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ragionesociale" ColumnName="ragionesociale" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="cognome" ColumnName="cognome" />
+                <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+                <ScalarProperty Name="Cap" ColumnName="Cap" />
+                <ScalarProperty Name="citta" ColumnName="citta" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Cellulare" ColumnName="Cellulare" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cause">
+            <EntityTypeMapping TypeName="legalnoteModel.cause">
+              <MappingFragment StoreEntitySet="cause">
+                <ScalarProperty Name="idUtente" ColumnName="idUtente" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="idcause" ColumnName="idcause" />
+                <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+                <ScalarProperty Name="nomecausa" ColumnName="nomecausa" />
+                <ScalarProperty Name="datainiziocausa" ColumnName="datainiziocausa" />
+                <ScalarProperty Name="datafinecausa" ColumnName="datafinecausa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cause_doc">
+            <EntityTypeMapping TypeName="legalnoteModel.cause_doc">
+              <MappingFragment StoreEntitySet="cause_doc">
+                <ScalarProperty Name="filetype" ColumnName="filetype" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="idcause_doc" ColumnName="idcause_doc" />
+                <ScalarProperty Name="idcausa" ColumnName="idcausa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="utenti">
+            <EntityTypeMapping TypeName="legalnoteModel.utenti">
+              <MappingFragment StoreEntitySet="utenti">
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

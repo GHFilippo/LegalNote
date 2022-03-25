@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="legalnoteModelStoreContainer" CdmEntityContainer="legalnoteEntities">
+    <EntitySetMapping Name="anagrafica">
+      <EntityTypeMapping TypeName="legalnoteModel.anagrafica">
+        <MappingFragment StoreEntitySet="anagrafica">
+          <ScalarProperty Name="idUtente" ColumnName="idUtente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ragionesociale" ColumnName="ragionesociale" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cognome" ColumnName="cognome" />
+          <ScalarProperty Name="indirizzo" ColumnName="indirizzo" />
+          <ScalarProperty Name="Cap" ColumnName="Cap" />
+          <ScalarProperty Name="citta" ColumnName="citta" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Cellulare" ColumnName="Cellulare" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cause">
+      <EntityTypeMapping TypeName="legalnoteModel.cause">
+        <MappingFragment StoreEntitySet="cause">
+          <ScalarProperty Name="idUtente" ColumnName="idUtente" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="idcause" ColumnName="idcause" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+          <ScalarProperty Name="nomecausa" ColumnName="nomecausa" />
+          <ScalarProperty Name="datainiziocausa" ColumnName="datainiziocausa" />
+          <ScalarProperty Name="datafinecausa" ColumnName="datafinecausa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cause_doc">
+      <EntityTypeMapping TypeName="legalnoteModel.cause_doc">
+        <MappingFragment StoreEntitySet="cause_doc">
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="idcause_doc" ColumnName="idcause_doc" />
+          <ScalarProperty Name="idcausa" ColumnName="idcausa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="utenti">
+      <EntityTypeMapping TypeName="legalnoteModel.utenti">
+        <MappingFragment StoreEntitySet="utenti">
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

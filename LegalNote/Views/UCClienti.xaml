@@ -1,0 +1,88 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LegalNote.Views"
+             xmlns:local1="clr-namespace:LegalNote.ViewModels"
+             xmlns:LegalNote="clr-namespace:LegalNote" x:Class="LegalNote.Views.UCClienti"
+             mc:Ignorable="d" d:DesignWidth="800" Height="438">
+
+    <Grid Background="#FF5F928D">
+        <Grid.DataContext>
+            <local1:MainVM/>
+        </Grid.DataContext>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.DataContext>
+                <local1:UCCLientiVM/>
+            </Grid.DataContext>
+
+            <Button Visibility="Hidden" x:Name="ApriCauseButton" Command="{Binding MostraCause}" Content="Apri Cause"  Height="27" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="105"  />
+            <Grid Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="clientiDatagrid" Grid.Row="0" Grid.RowSpan="4" ItemsSource="{Binding ClientiList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    AutoGenerateColumns="False" 
+                    SelectedItem="{Binding ClienteScelto, FallbackValue=-1, Mode=TwoWay, TargetNullValue=-1, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="10,10,9.667,42" FontSize="14">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome Ragione Sociale" Binding="{Binding ragionesociale}"/>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding nome}"/>
+                        <DataGridTextColumn Header="Cognome" Binding="{Binding cognome}"/>
+                        <DataGridTextColumn Header="Indirizzo" Binding="{Binding indirizzo}"/>
+                        <DataGridTextColumn Header="Cap" Binding="{Binding Cap}"/>
+                        <DataGridTextColumn Header="Città" Binding="{Binding citta}"/>
+                        <DataGridTextColumn Header="Provincia" Binding="{Binding provincia}"/>
+                        <DataGridTextColumn Header="Tel." Binding="{Binding Telefono}"/>
+                        <DataGridTextColumn Header="Cell." Binding="{Binding Cellulare}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding email}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Salva" Grid.Row="3" Command="{Binding SaveData}" 
+                        Height="27" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Width="105" RenderTransformOrigin="0.538,0.44"
+                        Style="{StaticResource RoundCorner}"/>
+
+                <StackPanel Grid.Column="1"  Grid.Row="0" Grid.RowSpan="4">
+
+                    <Label Margin="8.5" Content="Rag. Sociale" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Margin="8.5" Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Margin="8.5" Content="Cognome" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Margin="8.5" Content="Indirizzo" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Margin="8.5" Content="Cap" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <Label Margin="8.5" Content="Città" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
+                    <Label Margin="8.5" Content="Provincia" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
+                    <Label Margin="8.5" Content="Telefono" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
+                    <Label Margin="8.5" Content="Cellulare" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Label Margin="8.5" Content="Email" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2"  Grid.Row="0" Grid.RowSpan="4">
+                    <TextBox Grid.Column="2" Height="23" Margin="10" Text="{Binding ClienteScelto.ragionesociale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" BorderBrush="#FF357D76" BorderThickness="1" Background="#FFFEFFE3"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.cognome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.indirizzo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.Cap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.citta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.provincia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.Telefono, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.Cellulare, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="2"/>
+                    <TextBox Grid.Column="2" Height="23" Margin="10" TextWrapping="Wrap" Text="{Binding ClienteScelto.email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="2"/>
+                </StackPanel>
+                <Button Content="Elimina cliente" Grid.Row="3" Command="{Binding EliminaCliente}" 
+                    Height="27" Margin="10,0,233,10" VerticalAlignment="Bottom" RenderTransformOrigin="0.538,0.44"
+                    Style="{StaticResource RoundCorner}"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

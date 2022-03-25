@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="legalnoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="anagrafica">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ragionesociale" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cognome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="indirizzo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="citta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="provincia" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cellulare" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idUtente" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cause">
+    <Key>
+      <PropertyRef Name="idcause" />
+    </Key>
+    <Property Name="idcause" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="nomecausa" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="datainiziocausa" Type="DateTime" Nullable="false" />
+    <Property Name="datafinecausa" Type="DateTime" />
+    <Property Name="descrizione" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="idUtente" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cause_doc">
+    <Key>
+      <PropertyRef Name="idcause_doc" />
+    </Key>
+    <Property Name="idcause_doc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcausa" Type="Int32" Nullable="false" />
+    <Property Name="filename" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="filetype" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="utenti">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="admin" Type="SByte" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="legalnoteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="anagrafica" EntityType="Self.anagrafica" />
+    <EntitySet Name="cause" EntityType="Self.cause" />
+    <EntitySet Name="cause_doc" EntityType="Self.cause_doc" />
+    <EntitySet Name="utenti" EntityType="Self.utenti" />
+  </EntityContainer>
+</Schema>
